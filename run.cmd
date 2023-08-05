@@ -20,4 +20,4 @@ IF %ERRORLEVEL% EQU 0 (
 )
 
 REM Run the Python script
-python test.py
+python chatshell.py
