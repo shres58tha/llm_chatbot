@@ -18,4 +18,4 @@ else
     llm install llm-gpt4all
 fi
 
-python test.py
+python chatshell.py
