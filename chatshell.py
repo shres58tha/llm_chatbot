@@ -9,9 +9,10 @@ from weather import *
 from chat import *
 
 
-time_list = ['what time','which day', "o' clock"]
+time_list = ['what time','which day', "o' clock", 'time', 'day']
 wiki_list = ['search wiki', 'wikipedia', 'wiki']
 weather_list = ['weather','is it going to rain', ' rain or not', 'how hot', 'how cold', 'temperature', 'wind speed', ' is it cold', 'is it hot']
+exit_list = ['Goodbye, I hope to assist you again soon.','bye','close','exit']
 
 
 
@@ -25,28 +26,29 @@ def get_chat_response(query):
 def chat_shell():
     greeting()
     print("Welcome to LLN Chatbot. Type 'exit' to end the conversation.")
-    
+
     user_input = ""
-    while user_input.lower() != "exit":
-        user_input = input("<<: ")
-        if user_input.lower() != "exit":
-            prompt = f"You: {user_input}\nLLN: "
-            print (prompt)
-            if user_input in time_list:
-                day()
-                time_now()
+    while 1:
+        user_input = input("<<: ").lower()
+        #print( user_input)
+        if user_input in exit_list:
+            print(user_input)
+            exit(0)
+        prompt = f"You: {user_input}\nLLN: "
+        print (prompt)
+        if user_input in time_list:
+            day()
+            time_now()
 
-            elif user_input in wiki_list:
-                wiki()
+        elif user_input in wiki_list:
+            wiki()
 
-            elif user_input in weather_list:
-                weather()
+        elif user_input in weather_list:
+            weather()
 
-            else:
-                response = get_chat_response(prompt)
-                print(response.text())
-                pass
-            
+        else:
+            response = get_chat_response(prompt)
+            print(response.text())   
 
 if __name__ == "__main__":
     chat_shell()

@@ -10,12 +10,12 @@ from requests_html import HTMLSession
 
 def find_weather(query = 'kathmandu'):
     url = f'https://www.google.com/search?q={query}+weather'
-    print(url)
+
     head={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"}
     s = HTMLSession()
     try:
         r=s.get(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"})
-        
+
         title=r.html.find('title',first = True).text
         samaya = r.html.find('div.VQF4g ', first = True).find('#wob_dts',first = True).text
         temp=r.html.find('span#wob_tm',first = True).text
@@ -25,16 +25,13 @@ def find_weather(query = 'kathmandu'):
         weather_state=r.html.find('div.VQF4g', first = True).find('span#wob_dc',first = True).text
         #print(mausam, " :",  weather_state)
         #print(samaya)
-        
-        
-        print('information according to google search :', url)
+
+
+        print('as per :', url)
         print(samaya)
         print( "current temperature", temp ,unit)
         print(mausam, " :",  weather_state)
-        
-    
+
+
     except:
-        print(f'city or location {query} not found') 
-    
-    
-    
+        print(f'city or location {query} not found')
