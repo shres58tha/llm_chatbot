@@ -5,5 +5,5 @@ for the linux running the **run.sh** should set up virtual env and should downlo
 
 same must happen with **run.cmd** in windows environment
 
-##run as:
-**python chatshell.py**
+## run as:
+  **python chatshell.py**
