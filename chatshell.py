@@ -13,6 +13,7 @@ time_list = ['what time','which day', "o' clock", 'time', 'day']
 wiki_list = ['search wiki', 'wikipedia', 'wiki']
 weather_list = ['weather','is it going to rain', ' rain or not', 'how hot', 'how cold', 'temperature', 'wind speed', ' is it cold', 'is it hot']
 exit_list = ['Goodbye, I hope to assist you again soon.','bye','close','exit']
+news_list = ['what in news','news','news summary', 'bbc']
 
 
 
@@ -34,7 +35,7 @@ def chat_shell():
         if user_input in exit_list:
             print(user_input)
             exit(0)
-        prompt = f"You: {user_input}\nLLN: "
+        prompt = f"Thinking about h: {user_input}\nLLN: "
         print (prompt)
         if user_input in time_list:
             day()
@@ -46,9 +47,12 @@ def chat_shell():
         elif user_input in weather_list:
             weather()
 
+        elif user_input in news_list:
+            news()
+
         else:
             response = get_chat_response(prompt)
-            print(response.text())   
+            print(response.text())
 
 if __name__ == "__main__":
     chat_shell()

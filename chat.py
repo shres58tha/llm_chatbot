@@ -5,6 +5,7 @@ from import_xyz import import_xyz
 import_xyz('wikipedia')
 import wikipedia
 from weather import *
+from news_bbc import *
 import requests
 
 now = datetime.now()
@@ -26,7 +27,7 @@ def day():
 def time_now():
     times = now.strftime("%H:%M:%S")
     print(f"The time is {times}.")
-    
+
 def weather():
     find_weather(query = 'kathmandu')
 
@@ -35,3 +36,6 @@ def wiki():
     result = wikipedia.summary(data)
     # printing the result
     print(result)
+
+def news():
+    display_news()
